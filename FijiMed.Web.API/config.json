@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "FijiMedConnectionString":  "Data Source=.; Initial Catalog=FijiMedDb; User ID=sa; Password=1;MultipleActiveResultSets=true"
+  }
+}
