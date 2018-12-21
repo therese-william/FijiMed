@@ -1,4 +1,5 @@
 ﻿using FijiMed.Data.Entities;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,30 +10,65 @@ namespace FijiMed.Data
     public class FijiMedRepository : IFijiMedRepository
     {
         private readonly FijiMedContext _ctx;
+        private readonly ILogger<FijiMedRepository> _logger;
 
-        public FijiMedRepository(FijiMedContext ctx)
+        public FijiMedRepository(FijiMedContext ctx, ILogger<FijiMedRepository> logger)
         {
             _ctx = ctx;
+            _logger = logger;
         }
 
         public IEnumerable<Patient> GetPatients()
         {
-            return _ctx.Patients.ToList();
+            try
+            {
+                return _ctx.Patients.ToList();
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError($"Failed to retrieve patients: {ex}");
+                return null;
+            }
         }
 
         public IEnumerable<User> GetUsers()
         {
-            return _ctx.Users.ToList();
+            try
+            {
+                _logger.LogInformation("GetUsers() was called.");
+                return _ctx.Users.ToList();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Failed to retrieve users: {ex}");
+                return null;
+            }
         }
 
         public IEnumerable<Doctor> GetDoctors()
         {
-            return _ctx.Doctors.ToList();
+            try
+            {
+                return _ctx.Doctors.ToList();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Failed to retrieve doctors: {ex}");
+                return null;
+            }
         }
 
         public bool SaveAll()
         {
-            return _ctx.SaveChanges() > 0;
+            try
+            {
+                return _ctx.SaveChanges() > 0;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Failed to save data: {ex}");
+                return false;
+            }
         }
     }
 }
