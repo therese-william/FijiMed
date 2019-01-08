@@ -18,7 +18,7 @@ namespace FijiMed.Data
             _logger = logger;
         }
 
-        public IEnumerable<Patient> GetPatients()
+        public List<Patient> GetPatients()
         {
             try
             {
@@ -31,7 +31,7 @@ namespace FijiMed.Data
             }
         }
 
-        public IEnumerable<User> GetUsers()
+        public List<User> GetUsers()
         {
             try
             {
@@ -45,7 +45,7 @@ namespace FijiMed.Data
             }
         }
 
-        public IEnumerable<Doctor> GetDoctors()
+        public List<Doctor> GetDoctors()
         {
             try
             {
