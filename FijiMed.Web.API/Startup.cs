@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using FijiMed.Data;
+using FijiMed.Mapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +31,7 @@ namespace FijiMed.Web.API
             {
                 cfg.UseSqlServer(_config.GetConnectionString("FijiMedConnectionString"), b => b.MigrationsAssembly("FijiMed.Web.API"));    
             });
+			services.AddAutoMapper(cfg => cfg.AddProfile(new FijiMedMappingProfile()));
             services.AddTransient<FijiMedSeeder>();
             services.AddScoped<IFijiMedRepository, FijiMedRepository>();
             services.AddMvc();

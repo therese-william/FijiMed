@@ -1,4 +1,5 @@
 ﻿using FijiMed.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -70,5 +71,30 @@ namespace FijiMed.Data
                 return false;
             }
         }
-    }
+
+		public Doctor GetDoctorById(int id)
+		{
+			try
+			{
+				return _ctx.Doctors.Include(d => d.DoctorUser).Include(d => d.DoctorScripts).FirstOrDefault(d => d.DoctorId == id);
+			}
+			catch (Exception ex)
+			{
+				_logger.LogError($"Failed to retrieve doctor for id {id}: {ex}");
+				return null;
+			}
+		}
+
+		public void AddEntity(object model)
+		{
+			try
+			{
+				_ctx.Add(model);
+			}
+			catch (Exception ex)
+			{
+				_logger.LogError($"Failed to add entity: {ex}");
+			}
+		}
+	}
 }

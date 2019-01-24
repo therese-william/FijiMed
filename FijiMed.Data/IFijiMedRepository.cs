@@ -9,5 +9,7 @@ namespace FijiMed.Data
         List<Patient> GetPatients();
         List<User> GetUsers();
         bool SaveAll();
-    }
+		Doctor GetDoctorById(int id);
+		void AddEntity(object model);
+	}
 }

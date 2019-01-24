@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FijiMed.ViewModels", "FijiM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FijiMed.Data", "FijiMed.Data\FijiMed.Data.csproj", "{00BDABFC-0650-4A18-8754-823EAB3A2DDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FijiMed.Mapper", "FijiMed.Mapper\FijiMed.Mapper.csproj", "{1B09F530-585C-4E1D-B928-D1055BC712BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{00BDABFC-0650-4A18-8754-823EAB3A2DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00BDABFC-0650-4A18-8754-823EAB3A2DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00BDABFC-0650-4A18-8754-823EAB3A2DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B09F530-585C-4E1D-B928-D1055BC712BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B09F530-585C-4E1D-B928-D1055BC712BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B09F530-585C-4E1D-B928-D1055BC712BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B09F530-585C-4E1D-B928-D1055BC712BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
